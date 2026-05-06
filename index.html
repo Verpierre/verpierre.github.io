@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic homepage of Pierre Vernimmen, PhD student in applied mathematics and optimization at UCLouvain." />
+  <title>Pierre Vernimmen</title>
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --paper: #ffffff;
+      --text: #232323;
+      --muted: #666666;
+      --accent: #2e5d72;
+      --accent-dark: #214555;
+      --accent-soft: #e8f0f3;
+      --warm-soft: #fbefe2;
+      --border: #dedbd2;
+      --shadow: rgba(35, 35, 35, 0.07);
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(46, 93, 114, 0.12), transparent 30rem),
+        radial-gradient(circle at 95% 10%, rgba(251, 239, 226, 0.95), transparent 22rem),
+        var(--bg);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    nav .name {
+      font-weight: 760;
+      color: var(--text);
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+
+    nav .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.8rem 1.2rem 4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 235px;
+      gap: 2.8rem;
+      align-items: center;
+      margin-bottom: 1.3rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.85rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2.25rem, 4vw, 3.55rem);
+      line-height: 1.04;
+      font-weight: 760;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      margin-bottom: 1.15rem;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.09rem;
+    }
+
+    .summary {
+      max-width: 730px;
+      font-size: 1.08rem;
+    }
+
+    .photo-card {
+      justify-self: end;
+      width: 235px;
+      padding: 0.55rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: 0 14px 35px var(--shadow);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.45rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.56rem 0.88rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      filter: brightness(0.96);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    section {
+      margin-bottom: 1.15rem;
+      padding: 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.91);
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: 1.46rem;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    h3 {
+      margin: 1.15rem 0 0.3rem;
+      font-size: 1.08rem;
+    }
+
+    p {
+      margin: 0 0 0.9rem;
+    }
+
+    ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .item {
+      padding-bottom: 1.05rem;
+      margin-bottom: 1.05rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .item-title {
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .item-meta {
+      margin-top: 0.15rem;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .item-links {
+      margin-top: 0.35rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.85rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.58rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.84rem;
+      font-weight: 650;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .person-card {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff, #fbfbf8);
+    }
+
+    .person-role {
+      margin-top: 0.1rem;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.93rem;
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 2.5rem;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav .links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card {
+        justify-self: start;
+        width: 195px;
+      }
+
+      .two-columns,
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <a class="name" href="#top">Pierre Vernimmen</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#people">People</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Optimization · Performance estimation · UCLouvain</div>
+        <h1>Hi, I’m Pierre Vernimmen.</h1>
+        <div class="subtitle">
+          PhD student in applied mathematics at UCLouvain, Belgium.
+        </div>
+        <p class="summary">
+          I work on the worst-case analysis and design of first-order optimization methods. In practice, this means that I spend a fair amount of time asking simple-looking questions such as “how bad can gradient descent really be?” and then trying to answer them exactly.
+        </p>
+        <p class="summary">
+          My main tools are performance estimation problems, Lyapunov analysis, semidefinite programming, and computer-assisted proofs. I mostly work on smooth (strongly) convex optimization, exact and inexact gradient methods, and accelerated schemes. I am also interested in stochastic optimization, and their practical implementations.
+        </p>
+        <div class="buttons">
+          <a class="button" href="mailto:pierre.vernimmen@uclouvain.be">Email me</a>
+          <a class="button secondary" href="https://scholar.google.com/citations?user=hHmbq3EAAAAJ&hl=fr" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="button secondary" href="https://orcid.org/0009-0004-9578-6823" target="_blank" rel="noopener">ORCID</a>
+          <a class="button secondary" href="https://github.com/Verpierre" target="_blank" rel="noopener">GitHub</a>
+          <a class="button secondary" href="cv.pdf">CV</a>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="photo.jpg" alt="Portrait of Pierre Vernimmen" />
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a PhD student in applied mathematics at UCLouvain, in the Institute of Information and Communication Technologies, Electronics and Applied Mathematics. My research sits at the intersection of mathematical optimization, numerical analysis, and semidefinite programming.
+      </p>
+      <p>
+        I like methods that are simple to state but surprisingly subtle to understand. Gradient descent is a perfect example: one line of code, many possible convergence measures, and a lot of interesting mathematics hiding behind the constants.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p>
+        A large part of my work is based on the Performance Estimation Problem methodology. The idea is to formulate the worst-case behavior of an optimization algorithm as another optimization problem. The numerical solution gives a sharp guarantee, and the dual certificate often contains the proof we were looking for.
+      </p>
+      <p>
+        I am particularly interested in tight convergence guarantees, gradient-norm bounds, robust step-size schedules, relatively inexact gradients, and the way numerical certificates can be transformed into clean analytical arguments.
+      </p>
+      <div class="tag-list" aria-label="Research keywords">
+        <span class="tag">Performance estimation problems</span>
+        <span class="tag">First-order methods</span>
+        <span class="tag">Lyapunov analysis</span>
+        <span class="tag">Inexact gradients</span>
+        <span class="tag">Gradient-norm guarantees</span>
+        <span class="tag">Stochastic optimization</span>
+        <span class="tag">Semidefinite programming</span>
+      </div>
+    </section>
+
+    <section id="people">
+      <h2>People</h2>
+      <p>
+        I am supervised by <a href="https://perso.uclouvain.be/francois.glineur/" target="_blank" rel="noopener">François Glineur</a>. I also work with <a href="https://adrientaylor.github.io/" target="_blank" rel="noopener">Adrien Taylor</a> and <a href="https://bgoujaud.github.io/" target="_blank" rel="noopener">Baptiste Goujaud</a> on topics related to performance estimation, first-order methods, and worst-case analysis.
+      </p>
+      <div class="people-grid">
+        <div class="person-card">
+          <a href="https://perso.uclouvain.be/francois.glineur/" target="_blank" rel="noopener"><strong>François Glineur</strong></a>
+          <div class="person-role">PhD supervisor</div>
+        </div>
+        <div class="person-card">
+          <a href="https://adrientaylor.github.io/" target="_blank" rel="noopener"><strong>Adrien Taylor</strong></a>
+          <div class="person-role">Collaborator</div>
+        </div>
+        <div class="person-card">
+          <a href="https://bgoujaud.github.io/" target="_blank" rel="noopener"><strong>Baptiste Goujaud</strong></a>
+          <div class="person-role">Collaborator</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications and manuscripts</h2>
+
+      <div class="item">
+        <div class="item-title">Worst-case convergence analysis of relatively inexact gradient descent on smooth convex functions</div>
+        <div class="item-meta">Pierre Vernimmen and François Glineur · Journal article · Neurocomputing, 2026</div>
+        <p>
+          A sharp worst-case analysis of gradient descent with relatively inexact gradients on smooth convex functions, using the Performance Estimation Problem framework.
+        </p>
+        <div class="item-links">
+          <a href="https://doi.org/10.1016/j.neucom.2025.131883" target="_blank" rel="noopener">DOI</a> ·
+          <a href="https://arxiv.org/abs/2506.17145" target="_blank" rel="noopener">arXiv</a> ·
+          <a href="https://research.dial.uclouvain.be/items/31cac6aa-ee4d-4ebc-8a1b-f0502be1b102" target="_blank" rel="noopener">UCLouvain repository</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Empirical and computer-aided robustness analysis of long-step and accelerated methods in smooth convex optimization</div>
+        <div class="item-meta">Pierre Vernimmen and François Glineur · Conference paper · MCO 2025, France</div>
+        <p>
+          A numerical and computer-assisted study of the robustness of long-step and accelerated methods under relatively inexact gradients.
+        </p>
+        <div class="item-links">
+          <a href="https://arxiv.org/abs/2506.09730" target="_blank" rel="noopener">arXiv</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Convergence analysis of an inexact gradient method on smooth convex functions</div>
+        <div class="item-meta">Pierre Vernimmen and François Glineur · Conference paper · ESANN 2024, Belgium</div>
+        <p>
+          A conference paper on relatively inexact gradient descent for smooth convex optimization.
+        </p>
+        <div class="item-links">
+          <a href="https://dial.uclouvain.be/pr/boreal/object/boreal%3A293029" target="_blank" rel="noopener">UCLouvain repository</a> ·
+          <a href="https://www.esann.org/sites/default/files/proceedings/2024/ES2024-171.pdf" target="_blank" rel="noopener">Proceedings PDF</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Tight Convergence Analysis of Exact and Inexact Gradient Methods with Constant and Silver Schedules</div>
+        <div class="item-meta">Master’s thesis · UCLouvain, 2024 · Supervisor: François Glineur</div>
+        <p>
+          My master’s thesis, focused on tight convergence guarantees for exact and inexact gradient methods with constant and silver step-size schedules.
+        </p>
+        <div class="item-links">
+          <a href="https://thesis.dial.uclouvain.be/server/api/core/bitstreams/9c36d7be-3432-44bc-b8ff-a8ff0c121187/content" target="_blank" rel="noopener">Thesis PDF</a>
+        </div>
+      </div>
+
+      <p class="small-note">
+        I usually link to the DOI, arXiv, proceedings, or institutional repository rather than hosting separate local copies of papers here. It keeps the page cleaner, and it avoids versioning and copyright headaches.
+      </p>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>
+        I am involved in teaching and exercise sessions in optimization and applied mathematics at UCLouvain. I particularly enjoy helping students turn a mathematical model into something that can actually be solved, plotted, interpreted, and debugged without too much suffering.
+      </p>
+      <ul>
+        <li>Optimization courses and exercise sessions at bachelor and master level.</li>
+        <li>Student projects involving mathematical modeling, linear programming, and numerical optimization.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="two-columns">
+        <div>
+          <h3>Affiliation</h3>
+          <p>
+            UCLouvain<br />
+            Institute of Information and Communication Technologies, Electronics and Applied Mathematics<br />
+            Louvain-la-Neuve, Belgium
+          </p>
+        </div>
+        <div>
+          <h3>Links</h3>
+          <p>
+            Email: <a href="mailto:pierre.vernimmen@uclouvain.be">pierre.vernimmen@uclouvain.be</a><br />
+            Google Scholar: <a href="https://scholar.google.com/citations?user=hHmbq3EAAAAJ&hl=fr" target="_blank" rel="noopener">Pierre Vernimmen</a><br />
+            ORCID: <a href="https://orcid.org/0009-0004-9578-6823" target="_blank" rel="noopener">0009-0004-9578-6823</a><br />
+            GitHub: <a href="https://github.com/Verpierre" target="_blank" rel="noopener">Verpierre</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Last updated: May 2026. Built with plain HTML and CSS, hosted with GitHub Pages.
+  </footer>
+</body>
+</html>
